@@ -1,6 +1,8 @@
 const ContactFormControl = ({
     name,
+    onInputBlur,
     onInputChange,
+    onInputFocus,
     placeholder,
     type,
     value,
@@ -14,6 +16,8 @@ const ContactFormControl = ({
                 rows="5"
                 placeholder={placeholder}
                 onChange={onInputChange}
+                onBlur={onInputBlur}
+                onFocus={onInputFocus}
                 value={value}
                 required="required"
                 data-validation-required-message={`Please enter a ${name}.`}
@@ -28,7 +32,9 @@ const ContactFormControl = ({
             name={name}
             type={type}
             placeholder={placeholder}
+            onBlur={onInputBlur}
             onChange={onInputChange}
+            onFocus={onInputFocus}
             value={value}
             required="required"
             data-validation-required-message={`Please enter your ${name}.`}

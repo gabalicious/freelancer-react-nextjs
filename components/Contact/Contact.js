@@ -3,6 +3,7 @@ import ContactFormControlGroup from './ContactFormControlGroup';
 
 const formControls = [
     {
+        isFocused: false,
         labelText: 'Name',
         name: 'name',
         placeholder: 'Name',
@@ -11,6 +12,7 @@ const formControls = [
         errors: [],
     },
     {
+        isFocused: false,
         labelText: 'Email',
         name: 'email',
         placeholder: 'Email Address',
@@ -19,6 +21,7 @@ const formControls = [
         errors: [],
     },
     {
+        isFocused: false,
         labelText: 'Phone Number',
         name: 'phone',
         type: 'tel',
@@ -27,6 +30,7 @@ const formControls = [
         errors: [],
     },
     {
+        isFocused: false,
         labelText: 'Message',
         type: 'textarea',
         name: 'message',
@@ -45,6 +49,9 @@ class Contact extends Component {
         super(props);
 
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
+        this.setIsFocused = this.setIsFocused.bind(this);
+        this.updateInputBlur = this.updateInputBlur.bind(this);
+        this.updateInputFocus = this.updateInputFocus.bind(this);
         this.updateInputValue = this.updateInputValue.bind(this);
     }
 
@@ -86,25 +93,50 @@ class Contact extends Component {
         //     });
     }
 
-    updateInputValue(evt) {
+    setIsFocused(name, isFocused) {
         const { formControls } = this.state;
 
-        evt.preventDefault();
-
-        console.log(evt.target.name, evt.target.value);
-
         this.setState({
-            formControls: formControls.map((formControl) => {
-                if(formControl.name === evt.target.name) {
+            formControls: formControls.map((formControl, idx) => {
+                if(formControl.name === name) {
                     return {
                         ...formControl,
-                        value: evt.target.value
+                        isFocused: isFocused,
                     };
                 }
 
                 return formControl;
             }),
-        })
+        });
+    }
+
+    updateInputBlur(evt) {
+        this.setIsFocused(evt.target.name, false);
+    }
+
+    updateInputFocus(evt) {
+        this.setIsFocused(evt.target.name, true);
+    }
+
+    updateInputValue(evt) {
+        const { formControls } = this.state;
+
+        evt.preventDefault();
+
+        // console.log(evt.target.name, evt.target.value);
+
+        this.setState({
+            formControls: formControls.map((formControl, idx) => {
+                if(formControl.name === evt.target.name) {
+                    return {
+                        ...formControl,
+                        value: evt.target.value,
+                    };
+                }
+
+                return formControl;
+            }),
+        });
     }
 
     render() {
@@ -132,12 +164,15 @@ class Contact extends Component {
                                         <ContactFormControlGroup
                                             key={`contact_form_control_group_${formControl.name}`}
                                             errors={formControl.errors}
+                                            isFocused={formControl.isFocused}
                                             labelText={formControl.labelText}
                                             type={formControl.type}
                                             name={formControl.name}
                                             value={formControl.value}
                                             placeholder={formControl.placeholder}
+                                            onInputBlur={this.updateInputBlur}
                                             onInputChange={this.updateInputValue}
+                                            onInputFocus={this.updateInputFocus}
                                         />
                                     ))
                                 }
@@ -150,6 +185,8 @@ class Contact extends Component {
                                         id="sendMessageButton"
                                         onClick={this.handleFormSubmit}
                                     >
+                                        <i className="fas fa-paper-plane fa-fw"></i>
+                                        {' '}
                                         Send
                                     </button>
                                 </div>

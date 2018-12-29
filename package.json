@@ -2,10 +2,9 @@
     "name": "startbootstrap-freelancer-react-nextjs",
     "version": "0.1.0",
     "description": "A freelancer portfolio HTML theme for Bootstrap developed by Start Bootstrap and built on top of React and NextJS.",
-    "scripts": {
-        "dev": "next",
-        "build": "next build",
-        "start": "next start"
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:thtg88/startbootstrap-freelancer-react-nextjs.git"
     },
     "keywords": [
         "css",
@@ -29,5 +28,10 @@
         "reactstrap": "^6.5.0",
         "startbootstrap-freelancer": "^5.0.1",
         "yup": "^0.26.6"
+    },
+    "scripts": {
+        "dev": "next",
+        "build": "next build",
+        "start": "next start"
     }
 }
