@@ -1,4 +1,10 @@
 import { Component } from 'react';
+import * as yup from 'yup';
+import {
+    getValuesFromFormResource,
+    getValidationSchemaFromFormResource,
+    updateFormResourceFromErrors,
+} from '../../helpers/formResources';
 import ContactFormControlGroup from './ContactFormControlGroup';
 
 const formControls = [
@@ -10,6 +16,9 @@ const formControls = [
         type: 'text',
         value: '',
         errors: [],
+        rules: yup.string()
+            .required()
+            .max(255),
     },
     {
         isFocused: false,
@@ -19,6 +28,10 @@ const formControls = [
         type: 'email',
         value: '',
         errors: [],
+        rules: yup.string()
+            .required()
+            .email()
+            .max(255),
     },
     {
         isFocused: false,
@@ -28,6 +41,9 @@ const formControls = [
         placeholder: 'Phone Number',
         value: '',
         errors: [],
+        rules: yup.string()
+            .required()
+            .max(255),
     },
     {
         isFocused: false,
@@ -37,6 +53,8 @@ const formControls = [
         placeholder: 'Message',
         value: '',
         errors: [],
+        rules: yup.string()
+            .required(),
     },
 ];
 
@@ -55,42 +73,47 @@ class Contact extends Component {
         this.updateInputValue = this.updateInputValue.bind(this);
     }
 
-    handleFormSubmit(evt) {
-        // const { resource } = this.state;
-        // const values = getValuesFromFormResource(resource);
-        // const validationSchema = getValidationSchemaFromFormResource(resource);
-        // const data = { token, ...values };
+    async handleFormSubmit(evt) {
+        const { formControls } = this.state;
+        const values = getValuesFromFormResource(formControls);
+        const validationSchema = getValidationSchemaFromFormResource(formControls);
 
         evt.preventDefault();
 
+        console.log(values);
+
         // Reset errors
-        // this.setState({
-        //     resource: updateFormResourceFromErrors(resource, {inner:[]})
-        // });
-        //
-        // console.log('form submitted');
-        //
-        // await yup.object(validationSchema)
-        //     .validate(
-        //         values,
-        //         { abortEarly: false }
-        //     )
-        //     .then(() => {
-        //         // If validation passes
-        //         // Create resource
-        //
-        //         this.setState({
-        //             creating_resource: true
-        //         });
-        //
-        //     })
-        //     .catch((errors) => {
-        //         // If validation does not passes
-        //         // Set errors in the form
-        //         this.setState({
-        //             resource: updateFormResourceFromErrors(resource, errors)
-        //         });
-        //     });
+        this.setState({
+            formControls: updateFormResourceFromErrors(formControls, {inner:[]})
+        });
+
+        await yup.object(validationSchema)
+            .validate(
+                values,
+                { abortEarly: false }
+            )
+            .then(() => {
+                // Validation passed
+
+                // You may want to set a state variable for representing
+                // the for msubmitting status in order to show a spinner indicator,
+                // disabling the submit button, or somethine else
+                // this.setState({
+                //     creating_formControls: true
+                // });
+
+                // TODO submit the data to a backend/API,
+                // in order to send the contact request
+
+                console.log('form submitted!');
+            })
+            .catch(errors => {
+                // If validation does not passes
+                // Set errors in the form
+                this.setState({
+                    formControls: updateFormResourceFromErrors(formControls, errors)
+                });
+            });
     }
 
     setIsFocused(name, isFocused) {

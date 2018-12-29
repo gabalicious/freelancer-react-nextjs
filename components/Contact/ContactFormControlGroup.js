@@ -36,15 +36,15 @@ const ContactFormControlGroup = ({
                     value={value}
                     placeholder={placeholder}
                 />
-                <p className="help-block text-danger">
+                <div className="help-block text-danger">
                     {
                         errors && errors.length > 0
                             ? <ul>
-                                {errors.map((error, idx) => <li>{error}</li>)}
+                                {errors.map((error, idx) => <li key={`${name}_error_${idx}`}>{error}</li>)}
                             </ul>
                             : null
                     }
-                </p>
+                </div>
             </div>
         </div>
     );

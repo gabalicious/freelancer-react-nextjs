@@ -6,8 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/) (or at lea
 
 ## [Unreleased]
 ### Added
-- Contact form validation
 - Navbar links scroll spy and style
+
+## [0.1.1] - 2018-12-29
+### Added
+- Contact form validation
 - PropTypes
 
 ## [0.1.0] - 2018-12-29
