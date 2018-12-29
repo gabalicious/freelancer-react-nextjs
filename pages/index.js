@@ -10,7 +10,7 @@ import Portfolio from '../components/Portfolio';
 import ScrollToTop from '../components/ScrollToTop';
 import '../scss/style.scss';
 
-export default class Index extends Component {
+class Index extends Component {
     state = {
         isNavbarOpen: false,
         isNavbarShrunk: false,
@@ -26,10 +26,39 @@ export default class Index extends Component {
     }
 
     handleScroll(evt) {
-        this.setState({
-            isNavbarShrunk: window.pageYOffset > 100,
-            isScrollToTopVisible: window.pageYOffset > 100,
-        });
+        const {
+            isNavbarShrunk,
+            isScrollToTopVisible,
+        } = this.state;
+
+        // This cause a lot of wasted re-render
+        // every time the page is scrolled
+        // this.setState({
+        //     isNavbarShrunk: window.pageYOffset > 100,
+        //     isScrollToTopVisible: window.pageYOffset > 100,
+        // });
+
+        if(window.pageYOffset > 100) {
+            // This way we don't keep setting the state
+            // if the navbar has already shrunk
+            // or is the scroll to top visible
+            if(!isNavbarShrunk || !isScrollToTopVisible) {
+                this.setState({
+                    isNavbarShrunk: true,
+                    isScrollToTopVisible: true,
+                })
+            }
+        } else {
+            // This way we don't keep setting the state
+            // if the navbar has not already shrunk
+            // or is the scroll to top is not visible
+            if(isNavbarShrunk || isScrollToTopVisible) {
+                this.setState({
+                    isNavbarShrunk: false,
+                    isScrollToTopVisible: false,
+                })
+            }
+        }
     }
 
     onNavbarTogglerClick(evt) {
@@ -106,3 +135,5 @@ export default class Index extends Component {
         );
     }
 }
+
+export default Index;
