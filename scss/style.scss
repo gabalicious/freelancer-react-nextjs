@@ -1,23 +1,29 @@
 // Import styles
+$fa-font-path: '/static/webfonts';
+
 @import "~bootstrap/scss/bootstrap.scss";
 @import "~startbootstrap-freelancer/css/freelancer.css";
 @import "~startbootstrap-freelancer/vendor/magnific-popup/magnific-popup.css";
+@import "~startbootstrap-freelancer/vendor/fontawesome-free/scss/fontawesome.scss";
+@import "~startbootstrap-freelancer/vendor/fontawesome-free/scss/regular.scss";
+@import "~startbootstrap-freelancer/vendor/fontawesome-free/scss/brands.scss";
+@import "~startbootstrap-freelancer/vendor/fontawesome-free/scss/solid.scss";
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic');
 
-@font-face{
-    font-family:"Font Awesome 5 Free";
-    font-style:normal;
-    font-weight:900;
-    src:url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-solid-900.eot);
-    src:url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-solid-900.eot?#iefix) format("embedded-opentype"),
-        url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-solid-900.woff2) format("woff2"),
-        url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-solid-900.woff) format("woff"),
-        url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-solid-900.ttf) format("truetype"),
-        url(https://use.fontawesome.com/releases/v5.6.3/webfonts/fa-solid-900.svg#fontawesome) format("svg")
+.scroll-to-top {
+    display: block !important;
 }
 
-.scroll-to-top {
-    display: block!important;
+.modal-backdrop {
+    &.show {
+        // opacity: 0.25;
+    }
+}
+
+.portfolio-modal {
+    .portfolio-modal-dialog {
+        margin: 0 !important;
+    }
 }

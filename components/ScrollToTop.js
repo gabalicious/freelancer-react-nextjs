@@ -1,6 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
-
 const ScrollToTop = ({
     onClick,
     isVisible,
@@ -19,7 +16,7 @@ const ScrollToTop = ({
             data-scroll-to="page-top"
             onClick={onClick}
         >
-            <FontAwesomeIcon icon={faChevronUp} />
+            <i className="fas fa-chevron-up"></i>
         </a>
     </div>
 );

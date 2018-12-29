@@ -1,6 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
-
 const About = () => (
     <section className="bg-primary text-white mb-0" id="about">
         <div className="container">
@@ -24,7 +21,7 @@ const About = () => (
             </div>
             <div className="text-center mt-4">
                 <a className="btn btn-xl btn-outline-light" href="#">
-                    <FontAwesomeIcon fixedWidth icon={faDownload} className="mr-2" />
+                    <i className="fas fa-fw fa-download mr-2"></i>
                     Download Now!
                 </a>
             </div>

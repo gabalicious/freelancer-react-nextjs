@@ -1,11 +1,25 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faDribbble,
-    faFacebookF,
-    faGooglePlusG,
-    faLinkedinIn,
-    faTwitter,
-} from '@fortawesome/free-brands-svg-icons';
+const socialLinks = [
+    {
+        iconClassName: 'fa-facebook-f',
+        href: '#',
+    },
+    {
+        iconClassName: 'fa-google-plus-g',
+        href: '#',
+    },
+    {
+        iconClassName: 'fa-twitter',
+        href: '#',
+    },
+    {
+        iconClassName: 'fa-linkedin-in',
+        href: '#',
+    },
+    {
+        iconClassName: 'fa-dribbble',
+        href: '#',
+    },
+];
 
 const Footer = () => (
     <footer className="footer text-center">
@@ -22,31 +36,18 @@ const Footer = () => (
                 <div className="col-md-4 mb-5 mb-lg-0">
                     <h4 className="text-uppercase mb-4">Around the Web</h4>
                     <ul className="list-inline mb-0">
-                        <li className="list-inline-item">
-                            <a className="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                                <FontAwesomeIcon fixedWidth icon={faFacebookF} />
-                            </a>
-                        </li>
-                        <li className="list-inline-item">
-                            <a className="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                                <FontAwesomeIcon fixedWidth icon={faGooglePlusG} />
-                            </a>
-                        </li>
-                        <li className="list-inline-item">
-                            <a className="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                                <FontAwesomeIcon fixedWidth icon={faTwitter} />
-                            </a>
-                        </li>
-                        <li className="list-inline-item">
-                            <a className="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                                <FontAwesomeIcon fixedWidth icon={faLinkedinIn} />
-                            </a>
-                        </li>
-                        <li className="list-inline-item">
-                            <a className="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                                <FontAwesomeIcon fixedWidth icon={faDribbble} />
-                            </a>
-                        </li>
+                        {
+                            socialLinks.map((socialLink, idx) => (
+                                <li className="list-inline-item" key={`social_link_${idx}`}>
+                                    <a
+                                        className="btn btn-outline-light btn-social text-center rounded-circle"
+                                        href={socialLink.href}
+                                    >
+                                        <i className={`fab fa-fw ${socialLink.iconClassName}`}></i>
+                                    </a>
+                                </li>
+                            ))
+                        }
                     </ul>
                 </div>
                 <div className="col-md-4">

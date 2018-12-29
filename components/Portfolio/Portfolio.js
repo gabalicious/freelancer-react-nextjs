@@ -40,6 +40,29 @@ class Portfolio extends Component {
 
     };
 
+    constructor(props) {
+        super(props);
+
+        this.togglePortfolioModal = this.togglePortfolioModal.bind(this);
+    }
+
+    togglePortfolioModal(evt) {
+        const dataTarget = evt.target.getAttribute('data-target');
+
+        console.log(evt.target);
+        console.log(dataTarget);
+
+        evt.preventDefault();
+
+        if(dataTarget) {
+            const dataTargetValue = this.state[dataTarget];
+
+            this.setState({
+                [dataTarget]: !dataTargetValue,
+            });
+        }
+    }
+
     componentDidMount() {
         items.forEach((portfolioItem, idx) => {
             this.setState({
@@ -62,11 +85,15 @@ class Portfolio extends Component {
                                 <PortfolioItem
                                     imgSrc={item.imgSrc}
                                     linkHref={item.linkHref}
+                                    onClick={this.togglePortfolioModal}
+                                    dataTarget={`${item.name}_open`}
                                 />
                                 <PortfolioModal
+                                    dataTarget={`${item.name}_open`}
                                     imgSrc={item.imgSrc}
                                     isOpen={this.state[`${item.name}_open`]}
                                     modalId={item.linkHref}
+                                    onClose={this.togglePortfolioModal}
                                 />
                             </Fragment>
                         ))}

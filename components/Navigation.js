@@ -1,6 +1,19 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { Collapse } from 'reactstrap';
+
+const navbarLinks = [
+    {
+        scrollTo: 'portfolio',
+        text: 'Portfolio',
+    },
+    {
+        scrollTo: 'about',
+        text: 'About',
+    },
+    {
+        scrollTo: 'contact',
+        text: 'Contact',
+    },
+];
 
 const Navigation = ({
     isNavbarOpen,
@@ -33,7 +46,7 @@ const Navigation = ({
             >
                 Menu
                 {' '}
-                <FontAwesomeIcon icon={faBars} />
+                <i className="fas fa-bars"></i>
             </button>
             <Collapse
                 className="navbar-collapse"
@@ -41,36 +54,23 @@ const Navigation = ({
                 isOpen={isNavbarOpen}
             >
                 <ul className="navbar-nav ml-auto">
-                    <li className="nav-item mx-0 mx-lg-1">
-                        <a
-                            className="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="#portfolio"
-                            data-scroll-to="portfolio"
-                            onClick={onNavigationItemClick}
-                        >
-                            Portfolio
-                        </a>
-                    </li>
-                    <li className="nav-item mx-0 mx-lg-1">
-                        <a
-                            className="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="#about"
-                            data-scroll-to="about"
-                            onClick={onNavigationItemClick}
-                        >
-                            About
-                        </a>
-                    </li>
-                    <li className="nav-item mx-0 mx-lg-1">
-                        <a
-                            className="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="#contact"
-                            data-scroll-to="contact"
-                            onClick={onNavigationItemClick}
-                        >
-                            Contact
-                        </a>
-                    </li>
+                    {
+                        navbarLinks.map((navbarLink, idx) => (
+                            <li
+                                className="nav-item mx-0 mx-lg-1"
+                                key={`navbar_list_item_${idx}`}
+                            >
+                                <a
+                                    className="nav-link py-3 px-0 px-lg-3 rounded"
+                                    href={navbarLink.href ? navbarLink.href : '#'+navbarLink.scrollTo}
+                                    data-scroll-to={navbarLink.scrollTo}
+                                    onClick={onNavigationItemClick}
+                                >
+                                    {navbarLink.text}
+                                </a>
+                            </li>
+                        ))
+                    }
                 </ul>
             </Collapse>
         </div>
