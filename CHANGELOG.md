@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/) (or at lea
 ### Added
 - Contact form validation
 - Navbar links scroll spy and style
+- PropTypes
 
 ## [0.1.0] - 2018-12-29
 ### Added

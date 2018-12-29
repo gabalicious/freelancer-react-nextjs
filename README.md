@@ -46,13 +46,10 @@ $ npm run build
 - ES6+
 - [Bootstrap](https://getbootstrap.com/) with [reactstrap](https://reactstrap.github.io/)
 - [FontAwesome Icons](https://fontawesome.com/)
-- [Google ReCaptcha v2](https://www.google.com/recaptcha) with [react-google-recaptcha](https://github.com/dozoisch/react-google-recaptcha)
 - JSX
 - [Next.js](https://github.com/zeit/next.js/)
 - [React](https://reactjs.org/)
-    - [Error Boundaries](https://reactjs.org/docs/error-boundaries.html)
     - [PropTypes](https://github.com/facebook/prop-types)
-- [Sentry](https://sentry.io)
 - [Webpack Hot Module Replacement](https://webpack.js.org/concepts/hot-module-replacement/)
 - [Yup](https://github.com/jquense/yup)
 
