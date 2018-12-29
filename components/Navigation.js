@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Collapse } from 'reactstrap';
 
 const navbarLinks = [
@@ -76,5 +77,12 @@ const Navigation = ({
         </div>
     </nav>
 );
+
+Navigation.propTypes = {
+    isNavbarOpen: PropTypes.bool,
+    isNavbarShrunk: PropTypes.bool,
+    onNavbarTogglerClick: PropTypes.func,
+    onNavigationItemClick: PropTypes.func,
+};
 
 export default Navigation;

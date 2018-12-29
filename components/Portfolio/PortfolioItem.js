@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const PortfolioItem = ({
     imgSrc,
     linkHref,
@@ -36,5 +38,12 @@ const PortfolioItem = ({
         </a>
     </div>
 );
+
+PortfolioItem.propTypes = {
+    imgSrc: PropTypes.string,
+    linkHref: PropTypes.string,
+    onClick: PropTypes.func,
+    dataTarget: PropTypes.string,
+};
 
 export default PortfolioItem;

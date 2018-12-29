@@ -50,6 +50,7 @@ $ npm run build
 - [Next.js](https://github.com/zeit/next.js/)
 - [React](https://reactjs.org/)
     - [PropTypes](https://github.com/facebook/prop-types)
+- [Start Bootstrap's "Freelancer" Boostrap theme](http://startbootstrap.com/template-overviews/freelancer/)
 - [Webpack Hot Module Replacement](https://webpack.js.org/concepts/hot-module-replacement/)
 - [Yup](https://github.com/jquense/yup)
 

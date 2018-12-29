@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const ContactFormControl = ({
     name,
     onInputBlur,
@@ -40,6 +42,16 @@ const ContactFormControl = ({
             data-validation-required-message={`Please enter your ${name}.`}
         />
     );
+};
+
+ContactFormControl.propTypes = {
+    name: PropTypes.string,
+    onInputBlur: PropTypes.func,
+    onInputChange: PropTypes.func,
+    onInputFocus: PropTypes.func,
+    placeholder: PropTypes.string,
+    type: PropTypes.string,
+    value: PropTypes.string,
 };
 
 export default ContactFormControl;

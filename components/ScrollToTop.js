@@ -1,6 +1,8 @@
+import PropTypes from 'prop-types';
+
 const ScrollToTop = ({
-    onClick,
     isVisible,
+    onClick,
 }) => (
     <div
         className="scroll-to-top d-lg-none position-fixed"
@@ -20,5 +22,10 @@ const ScrollToTop = ({
         </a>
     </div>
 );
+
+ScrollToTop.propTypes = {
+    isVisible: PropTypes.bool,
+    onClick: PropTypes.func,
+};
 
 export default ScrollToTop;

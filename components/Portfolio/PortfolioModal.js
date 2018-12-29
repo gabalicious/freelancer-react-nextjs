@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Modal, ModalBody } from 'reactstrap';
 
 const PortfolioModal = ({
@@ -56,7 +57,13 @@ const PortfolioModal = ({
         </ModalBody>
     </Modal>
 );
-// <div className="portfolio-modal mfp-hide" id={modalId}>
-// </div>
+
+PortfolioModal.propTypes = {
+    dataTarget: PropTypes.string,
+    imgSrc: PropTypes.string,
+    isOpen: PropTypes.bool,
+    modalId: PropTypes.string,
+    onClose: PropTypes.func,
+};
 
 export default PortfolioModal;

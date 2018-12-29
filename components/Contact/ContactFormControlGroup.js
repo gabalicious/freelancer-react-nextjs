@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import ContactFormControl from './ContactFormControl';
 
 const ContactFormControlGroup = ({
@@ -48,4 +49,18 @@ const ContactFormControlGroup = ({
         </div>
     );
 }
+
+ContactFormControlGroup.propTypes = {
+    errors: PropTypes.array,
+    isFocused: PropTypes.bool,
+    labelText: PropTypes.string,
+    name: PropTypes.string,
+    onInputBlur: PropTypes.func,
+    onInputChange: PropTypes.func,
+    onInputFocus: PropTypes.func,
+    placeholder: PropTypes.string,
+    type: PropTypes.string,
+    value: PropTypes.string,
+};
+
 export default ContactFormControlGroup;
