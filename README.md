@@ -16,7 +16,7 @@
 
 ``` bash
 # clone the repo
-$ git clone https://github.com/thtg88/startbootstrap-freelancer-react-nextjs
+$ git clone https://github.com/thtg88/startbootstrap-freelancer-react-nextjs.git
 
 # go into app's directory
 $ cd my-project
