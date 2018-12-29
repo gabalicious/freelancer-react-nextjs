@@ -22,7 +22,7 @@ class Index extends Component {
 
         this.handleScroll = this.handleScroll.bind(this);
         this.onNavbarTogglerClick = this.onNavbarTogglerClick.bind(this);
-        this.onNavigationItemClick = this.onNavigationItemClick.bind(this);
+        this.onScrollToTopClick = this.onScrollToTopClick.bind(this);
     }
 
     handleScroll(evt) {
@@ -71,9 +71,7 @@ class Index extends Component {
         });
     }
 
-    onNavigationItemClick(evt) {
-        const scrollTo = evt.target.getAttribute('data-scroll-to');
-
+    onScrollToTopClick(evt) {
         evt.preventDefault();
 
         // We want to close the navbar when we scroll/navigate away
@@ -81,22 +79,37 @@ class Index extends Component {
             isNavbarOpen: false,
         });
 
-        if(scrollTo === 'page-top') {
-            scroll.scrollToTop();
-            return;
-        }
+        scroll.scrollToTop();
 
-        scroller.scrollTo(scrollTo, {
-            smooth: true,
-            offset: -50,
-        });
+        // scroller.scrollTo(scrollTo, {
+        //     smooth: true,
+        //     offset: -50,
+        // });
     }
 
     componentDidMount() {
+        Events.scrollEvent.register('begin', (to, element) => {
+            // We want to close the navbar when we scroll/navigate away
+            this.setState({
+                isNavbarOpen: false,
+            });
+        });
+
+        Events.scrollEvent.register('end', (to, element) => {
+            if(to === 'about') {
+                scroll.scrollMore(50);
+            }
+
+            // console.log("end", to, element);
+        });
+
         window.addEventListener('scroll', this.handleScroll);
     }
 
     componentWillUnmount() {
+        Events.scrollEvent.remove('begin');
+        Events.scrollEvent.remove('end');
+
         window.removeEventListener('scroll', this.handleScroll);
     }
 
@@ -113,22 +126,16 @@ class Index extends Component {
                     isNavbarOpen={isNavbarOpen}
                     isNavbarShrunk={isNavbarShrunk}
                     onNavbarTogglerClick={this.onNavbarTogglerClick}
-                    onNavigationItemClick={this.onNavigationItemClick}
+                    onScrollToTopClick={this.onScrollToTopClick}
                 />
                 <Header />
-                <Element name="portfolio">
-                    <Portfolio />
-                </Element>
-                <Element name="about">
-                    <About />
-                </Element>
-                <Element name="contact">
-                    <Contact />
-                </Element>
+                <Portfolio />
+                <About />
+                <Contact />
                 <Footer />
                 <Copyright />
                 <ScrollToTop
-                    onClick={this.onNavigationItemClick}
+                    onClick={this.onScrollToTopClick}
                     isVisible={isScrollToTopVisible}
                 />
             </>

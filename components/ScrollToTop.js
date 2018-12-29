@@ -15,7 +15,6 @@ const ScrollToTop = ({
         <a
             className=" d-block text-center text-white rounded"
             href="#page-top"
-            data-scroll-to="page-top"
             onClick={onClick}
         >
             <i className="fas fa-chevron-up"></i>

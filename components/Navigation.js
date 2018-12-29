@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Collapse } from 'reactstrap';
+import { Link, animateScroll as scroll } from 'react-scroll';
 
 const navbarLinks = [
     {
@@ -20,7 +21,7 @@ const Navigation = ({
     isNavbarOpen,
     isNavbarShrunk,
     onNavbarTogglerClick,
-    onNavigationItemClick,
+    onScrollToTopClick,
 }) => (
     <nav
         className={`navbar navbar-expand-lg bg-secondary fixed-top text-uppercase ${isNavbarShrunk ? 'navbar-shrink' : ''}`}
@@ -30,8 +31,7 @@ const Navigation = ({
             <a
                 className="navbar-brand"
                 href="#page-top"
-                data-scroll-to="page-top"
-                onClick={onNavigationItemClick}
+                onClick={onScrollToTopClick}
             >
                 Start Bootstrap
             </a>
@@ -61,14 +61,19 @@ const Navigation = ({
                                 className="nav-item mx-0 mx-lg-1"
                                 key={`navbar_list_item_${idx}`}
                             >
-                                <a
+                                <Link
+                                    activeClass="active"
                                     className="nav-link py-3 px-0 px-lg-3 rounded"
                                     href={navbarLink.href ? navbarLink.href : '#'+navbarLink.scrollTo}
-                                    data-scroll-to={navbarLink.scrollTo}
-                                    onClick={onNavigationItemClick}
+                                    to={navbarLink.scrollTo}
+                                    smooth={true}
+                                    spy={true}
+                                    hashSpy={true}
+                                    offset={-50}
+                                    isDynamic={true}
                                 >
                                     {navbarLink.text}
-                                </a>
+                                </Link>
                             </li>
                         ))
                     }
@@ -78,11 +83,14 @@ const Navigation = ({
     </nav>
 );
 
+// data-scroll-to={navbarLink.scrollTo}
+// onClick={onScrollToTopClick}
+
 Navigation.propTypes = {
     isNavbarOpen: PropTypes.bool,
     isNavbarShrunk: PropTypes.bool,
     onNavbarTogglerClick: PropTypes.func,
-    onNavigationItemClick: PropTypes.func,
+    onScrollToTopClick: PropTypes.func,
 };
 
 export default Navigation;

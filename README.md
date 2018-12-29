@@ -1,5 +1,6 @@
 # Start Bootstrap - Freelancer - Next.js
 [Freelancer](http://startbootstrap.com/template-overviews/freelancer/) is a one page freelancer portfolio theme for [Bootstrap](http://getbootstrap.com/) originally created by [Start Bootstrap](http://startbootstrap.com/) and adapted to be used with [Next.js](https://github.com/zeit/next.js). This theme features several content sections, a responsive portfolio grid with hover effects, full page portfolio item modals, and a contact form.
+
 **Please note: this repository is in no way associated with Start Bootstrap. It is simply a fork, a conversion if you like, of the original Freelancer template in order to be used together with [Next.js](https://github.com/zeit/next.js)**
 
 ## Table of Contents
