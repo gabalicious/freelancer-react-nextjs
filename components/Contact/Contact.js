@@ -185,8 +185,6 @@ class Contact extends Component {
                                         id="sendMessageButton"
                                         onClick={this.handleFormSubmit}
                                     >
-                                        <i className="fas fa-paper-plane fa-fw"></i>
-                                        {' '}
                                         Send
                                     </button>
                                 </div>
