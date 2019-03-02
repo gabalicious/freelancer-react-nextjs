@@ -20,15 +20,16 @@
     "license": "MIT",
     "dependencies": {
         "@zeit/next-sass": "^1.0.1",
-        "next": "^7.0.2",
+        "next": "^7.0.3",
         "node-sass": "^4.11.0",
-        "prop-types": "^15.6.2",
-        "react": "^16.7.0",
-        "react-dom": "^16.7.0",
-        "react-scroll": "^1.7.10",
+        "popper.js": "^1.14.7",
+        "prop-types": "^15.7.2",
+        "react": "^16.8.3",
+        "react-dom": "^16.8.3",
+        "react-scroll": "^1.7.11",
         "reactstrap": "^6.5.0",
-        "startbootstrap-freelancer": "^5.0.1",
-        "yup": "^0.26.7"
+        "startbootstrap-freelancer": "^5.0.3",
+        "yup": "^0.26.10"
     },
     "scripts": {
         "dev": "next",
