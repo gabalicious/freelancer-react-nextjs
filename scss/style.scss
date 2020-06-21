@@ -45,3 +45,10 @@ section {
 #contactForm textarea:focus {
   color: black;
 }
+
+.portfolio {
+  .col-md-6,
+  .col-lg-4 {
+    padding: 10px;
+  }
+}
