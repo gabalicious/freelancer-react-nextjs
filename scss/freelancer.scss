@@ -1,19 +1,16 @@
 // Import variables (overrides Bootstrap defaults)
-@import "~startbootstrap-freelancer/scss/base/_variables.scss";
+// Import variables (overrides Bootstrap defaults)
+@import "~startbootstrap-freelancer/src/scss/_variables.scss";
 
 // Import Bootstrap
 @import "~bootstrap/scss/bootstrap.scss";
 
-// Import base styles
-@import "~startbootstrap-freelancer/scss/base/_page.scss";
-
-// Import components styles
-@import "~startbootstrap-freelancer/scss/components/_divider.scss";
-@import "~startbootstrap-freelancer/scss/components/_buttons.scss";
-
-// Import layout styles
-@import "~startbootstrap-freelancer/scss/layout/_navbar.scss";
-@import "~startbootstrap-freelancer/scss/layout/_masthead.scss";
-@import "~startbootstrap-freelancer/scss/layout/_portfolio.scss";
-@import "~startbootstrap-freelancer/scss/layout/_contact.scss";
-@import "~startbootstrap-freelancer/scss/layout/_footer.scss";
+// Import custom styles
+@import "~startbootstrap-freelancer/src/scss/_global.scss";
+@import "~startbootstrap-freelancer/src/scss/_divider.scss";
+@import "~startbootstrap-freelancer/src/scss/_buttons.scss";
+@import "~startbootstrap-freelancer/src/scss/_navbar.scss";
+@import "~startbootstrap-freelancer/src/scss/_masthead.scss";
+@import "~startbootstrap-freelancer/src/scss/_portfolio.scss";
+@import "~startbootstrap-freelancer/src/scss/_contact.scss";
+@import "~startbootstrap-freelancer/src/scss/_footer.scss";
