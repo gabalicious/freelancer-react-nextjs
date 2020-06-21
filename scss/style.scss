@@ -1,29 +1,47 @@
 // Import styles
-$fa-font-path: '/static/webfonts';
+$fa-font-path: "/static/webfonts";
 
 @import "~bootstrap/scss/bootstrap.scss";
-@import "~startbootstrap-freelancer/css/freelancer.css";
-@import "~startbootstrap-freelancer/vendor/magnific-popup/magnific-popup.css";
-@import "~startbootstrap-freelancer/vendor/fontawesome-free/scss/fontawesome.scss";
-@import "~startbootstrap-freelancer/vendor/fontawesome-free/scss/regular.scss";
-@import "~startbootstrap-freelancer/vendor/fontawesome-free/scss/brands.scss";
-@import "~startbootstrap-freelancer/vendor/fontawesome-free/scss/solid.scss";
+@import "freelancer.scss";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic');
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic");
 
 .scroll-to-top {
-    display: block !important;
+  display: block !important;
 }
 
 .modal-backdrop {
-    &.show {
-        // opacity: 0.25;
-    }
+  &.show {
+    // opacity: 0.25;
+  }
 }
 
 .portfolio-modal {
-    .portfolio-modal-dialog {
-        margin: 0 !important;
-    }
+  .portfolio-modal-dialog {
+    margin: 0 !important;
+  }
+}
+
+section {
+  margin: 25px 0;
+  padding: 25px 0;
+}
+#contactForm input::placeholder,
+#contactForm textarea::placeholder {
+  color: white;
+}
+
+#contactForm input,
+#contactForm textarea {
+  color: white;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+  color: black;
 }
